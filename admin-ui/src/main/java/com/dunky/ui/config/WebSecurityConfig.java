@@ -45,7 +45,7 @@ public class WebSecurityConfig  {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.cors().and()
+        http.cors().and()  // Cross Origin Resource Sharing
                 .authorizeHttpRequests((requests) -> {
                     try {
                         requests
