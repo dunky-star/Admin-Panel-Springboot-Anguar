@@ -1,1 +1,1 @@
-# Admin-Panel-Springboot-Anguar
+# Develop Admin Panel - using Spring Boot and Angular
