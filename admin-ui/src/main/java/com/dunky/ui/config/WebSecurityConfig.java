@@ -31,6 +31,7 @@ public class WebSecurityConfig  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.cors().and()  // Cross Origin Resource Sharing
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> {
                     try {
                         requests
@@ -48,10 +49,7 @@ public class WebSecurityConfig  {
                             //login form and path
                             .formLogin().loginPage("/api/user/login").and()
                             //enable basic authentication
-                            .httpBasic().and()
-                            //We will handle it later.
-                            //Cross side request forgery
-                            .csrf().disable();
+                            .httpBasic();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
