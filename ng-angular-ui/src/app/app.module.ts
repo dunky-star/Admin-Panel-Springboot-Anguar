@@ -19,6 +19,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatListModule} from  '@angular/material/list';
+import { MatSidenavModule} from  '@angular/material/sidenav';
+import { MatIconModule } from  '@angular/material/icon';
+import { MatToolbarModule } from  '@angular/material/toolbar';
+import { MatCardModule } from  '@angular/material/card';
+import { MatInputModule } from  '@angular/material/input';
+import { MatTableModule } from  '@angular/material/table';
+import { MatProgressBarModule } from  '@angular/material/progress-bar';
+import { MatPaginatorModule } from  '@angular/material/paginator';
+import { MatSortModule  } from  '@angular/material/sort';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -44,7 +55,18 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatListModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatTableModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
