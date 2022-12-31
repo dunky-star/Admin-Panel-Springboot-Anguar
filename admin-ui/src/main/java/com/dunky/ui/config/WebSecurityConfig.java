@@ -34,12 +34,12 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        //Cross-origin-resource-sharing: localhost:8080, localhost:4200(allow for it.)
+        //Cross-origin-resource-sharing: localhost:8585, localhost:4200(allow for it.)
         http.cors().and()
                 .authorizeRequests()
                 //These are public paths
                 .antMatchers("/resources/**", "/error", "/api/user/**").permitAll()
-                //These can be reachable for just have admin role.
+                //These can be reachable for just admin role.
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 //All remaining paths should need authentication.
                 .anyRequest().fullyAuthenticated()
