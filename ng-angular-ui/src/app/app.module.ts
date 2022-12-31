@@ -15,6 +15,9 @@ import { UserTemplateComponent } from './components/template/user-template/user-
 import { AdminTemplateComponent } from './components/template/admin-template/admin-template.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { UnauthorizedComponent } from './components/error/unauthorized/unauthorized.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { UnauthorizedComponent } from './components/error/unauthorized/unauthori
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
