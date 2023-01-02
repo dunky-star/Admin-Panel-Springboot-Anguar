@@ -29,7 +29,10 @@ import { MatTableModule } from  '@angular/material/table';
 import { MatProgressBarModule } from  '@angular/material/progress-bar';
 import { MatPaginatorModule } from  '@angular/material/paginator';
 import { MatSortModule  } from  '@angular/material/sort';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule  } from  '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -66,7 +69,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatProgressBarModule,
     MatPaginatorModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],
