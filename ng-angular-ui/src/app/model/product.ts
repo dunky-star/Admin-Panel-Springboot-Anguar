@@ -1,6 +1,6 @@
 export class Product {
   id?: number;
-  name: string = "";
-  price: number = 0;
-  explanation: string = "";
+  name = "";
+  price = 0;
+  explanation = "";
 }

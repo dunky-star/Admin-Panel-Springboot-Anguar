@@ -8,7 +8,7 @@ import {Transaction} from '../model/transaction';
 
 
 // Bakend API URL
-let API_URL = "http://localhost:8585/api/user/";
+const API_URL = "http://localhost:8585/api/user/";
 
 @Injectable({
   providedIn: 'root'
