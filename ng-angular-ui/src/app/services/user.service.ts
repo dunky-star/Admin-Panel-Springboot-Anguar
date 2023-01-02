@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 import {User} from '../model/user';
 import {Product} from '../model/product';
 import {Transaction} from '../model/transaction';
-import { NonNullAssert } from '@angular/compiler';
+
 
 // Bakend API URL
 let API_URL = "http://localhost:8585/api/user/";
@@ -27,9 +27,9 @@ export class UserService {
     return this.currentUserSubject.value;
   }
 
-   login(user: User): Observable<any> {
+  login(user: User): Observable<any> {
     const headers = new HttpHeaders(user ? {
-      authorization:'Basic ' + btoa(user.username + ':' + user.password)
+      authorization:'Basic ' + window.btoa(user.username + ':' + user.password)
     }:{});
 
     return this.http.get<any> (API_URL + "login", {headers: headers})
@@ -42,7 +42,7 @@ export class UserService {
     }));
   }
 
-logOut(): Observable<any> {
+  logOut(): Observable<any> {
     return this.http.post(API_URL + "logout", {})
     .pipe(map(response => {
       localStorage.removeItem('currentUser');
@@ -51,21 +51,20 @@ logOut(): Observable<any> {
   }
 
 
-register(user: User): Observable<any> {
+  register(user: User): Observable<any> {
     return this.http.post(API_URL + "registration", JSON.stringify(user),
-  {headers: {"Content-Type":"application/json; charset=UTF-8"}});
-}
+    {headers: {"Content-Type":"application/json; charset=UTF-8"}});
+  }
 
 
-findAllProducts(): Observable<any> {
+  findAllProducts(): Observable<any> {
     return this.http.get(API_URL + "products",
-  {headers: {"Content-Type":"application/json; charset=UTF-8"}});
-}
+    {headers: {"Content-Type":"application/json; charset=UTF-8"}});
+  }
 
-purchaseProduct(transaction: Transaction): Observable<any> {
+  purchaseProduct(transaction: Transaction): Observable<any> {
     return this.http.post(API_URL + "purchase", JSON.stringify(transaction),
-  {headers: {"Content-Type":"application/json; charset=UTF-8"}});
-}
-
+    {headers: {"Content-Type":"application/json; charset=UTF-8"}});
+  }
 
 }
