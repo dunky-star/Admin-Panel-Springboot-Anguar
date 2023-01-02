@@ -18,12 +18,13 @@ export class LoginComponent {
 
   login() {
     this.userService.login(this.user).subscribe({
-      next: (data) => {
-        data.router.navigate(['/profile']).bind(data);
+      next: () => {
+        this.router.navigate(['/profile']);
       },
-      error: (err) => {
-        err.errorMessage = 'Username or password is incorrect.';
+      error: () => {
+        this.errorMessage = 'Username or password is incorrect.';
       },
+      complete: () => {},
     });
   }
 }

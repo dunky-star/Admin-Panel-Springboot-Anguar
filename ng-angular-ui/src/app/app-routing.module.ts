@@ -15,43 +15,44 @@ import {Role} from './model/role';
 
 const routes: Routes = [
   //Main page
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   //User pages
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'detail', component: DetailComponent},
-  {path: 'detail/:id', component: DetailComponent},
-    //error pages
-  {path: '404', component: NotFoundComponent},
-  {path: '401', component: UnauthorizedComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'detail', component: DetailComponent },
+  { path: 'detail/:id', component: DetailComponent },
+  //error pages
+  { path: '404', component: NotFoundComponent },
+  { path: '401', component: UnauthorizedComponent },
 
   // Below are pages that require login
-  {path: 'profile',
-  component: ProfileComponent,
-  data: {roles: [Role.ADMIN, Role.USER]}
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN, Role.USER] },
   },
 
   //admin panel
-  {path: 'dashboard',
-  component: DashboardComponent,
-  canActivate: [AuthGuard],
-  data: {roles: [Role.ADMIN]}
-
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN] },
   },
-  {path: 'user-list',
-  component: UserListComponent,
-  canActivate: [AuthGuard],
-  data: {roles: [Role.ADMIN]}
-
+  {
+    path: 'user-list',
+    component: UserListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN] },
   },
-  {path: 'product-list',
-  component: ProductListComponent,
-  canActivate: [AuthGuard],
-  data: {roles: [Role.ADMIN]}
-
- }
-
+  {
+    path: 'product-list',
+    component: ProductListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN] },
+  },
 ];
 
 @NgModule({
