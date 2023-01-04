@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   productList: Array<Product> = [];
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   obs?: Observable<any>;
   errorMessage?: string;
   infoMessage?: string;
@@ -65,14 +66,14 @@ export class HomeComponent implements OnInit {
     const transaction = new Transaction();
     transaction.product = product;
     transaction.user = this.currentUser;
-    this.userService.purchaseProduct(transaction).subscribe(
-      () => {
+    this.userService.purchaseProduct(transaction).subscribe({
+      next: () =>  {
         this.infoMessage = 'Mission is completed.';
       },
-      () => {
+      error: () => {
         this.errorMessage = 'Unexpected error occurred';
       }
-    );
+  });
   }
 
   detail(product: Product) {
