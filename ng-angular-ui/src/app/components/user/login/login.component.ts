@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component } from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../model/user';
@@ -14,7 +15,6 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit() {}
 
   login() {
     this.userService.login(this.user).subscribe({
