@@ -14,7 +14,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator?: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   productList: Array<Product> = [];
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
@@ -37,10 +37,9 @@ export class HomeComponent implements OnInit {
     this.obs = this.dataSource.connect();
   }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
 
-    this.dataSource.paginator = this.paginator!;
+    this.dataSource.paginator = this.paginator;
     this.cdr.detectChanges();
   }
 
