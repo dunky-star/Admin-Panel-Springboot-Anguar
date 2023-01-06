@@ -4,7 +4,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/model/user';
 import { AdminService } from 'src/app/services/admin.service';
-
 declare var $: any;
 
 
