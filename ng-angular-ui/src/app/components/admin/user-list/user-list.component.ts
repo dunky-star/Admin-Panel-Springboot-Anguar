@@ -4,7 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/model/user';
 import { AdminService } from 'src/app/services/admin.service';
-import $ from 'jquery';
+declare var $: any;
+
 
 @Component({
   selector: 'app-user-list',
@@ -55,8 +56,8 @@ export class UserListComponent implements OnInit {
         );
         this.userList[itemIndex] = this.selectedUser;
         this.dataSource = new MatTableDataSource(this.userList);
-        this.infoMessage = 'Mission is completed.';
-        $('#userModal').modal('hide');
+        this.infoMessage = 'operation is completed.';
+        $('#userModal'  as any).modal('hide');
       },
       error: (err) => {
         if (err.status === 409) {
@@ -70,7 +71,7 @@ export class UserListComponent implements OnInit {
 
   deleteUserRequest(user: User) {
     this.selectedUser = user;
-    $("#deleteModal").modal('show');
+    $("#deleteModal"  as any).modal('show');
   }
 
   deleteUser(){
@@ -81,8 +82,8 @@ export class UserListComponent implements OnInit {
         this.userList.splice(itemIndex, 1);
       }
       this.dataSource = new MatTableDataSource(this.userList);
-      this.infoMessage = "Mission is completed.";
-      $("#deleteModal").modal('hide');
+      this.infoMessage = "Operation is completed.";
+      $("#deleteModal"  as any).modal('hide');
     },
     error: () => {
       this.errorMessage = "Unexpected error occurred.";
