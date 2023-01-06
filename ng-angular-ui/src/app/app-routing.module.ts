@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
+import { TransactionListComponent } from './components/admin/transaction-list/transaction-list.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { UnauthorizedComponent } from './components/error/unauthorized/unauthorized.component';
@@ -50,6 +51,13 @@ const routes: Routes = [
   {
     path: 'product-list',
     component: ProductListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN] },
+  },
+
+  {
+    path: 'transaction-list',
+    component: TransactionListComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.ADMIN] },
   },

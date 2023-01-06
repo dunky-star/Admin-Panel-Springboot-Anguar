@@ -32,6 +32,7 @@ import { MatSortModule  } from  '@angular/material/sort';
 import { MatSelectModule  } from  '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { TransactionListComponent } from './components/admin/transaction-list/transaction-list.component';
 
 
 
@@ -49,7 +50,8 @@ import {HttpClientModule} from '@angular/common/http';
     UserTemplateComponent,
     AdminTemplateComponent,
     NotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,
