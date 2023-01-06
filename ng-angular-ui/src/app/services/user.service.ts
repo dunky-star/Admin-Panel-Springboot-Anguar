@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../model/user';
-import {Product} from '../model/product';
 import {Transaction} from '../model/transaction';
 
 
@@ -19,6 +18,7 @@ export class UserService {
   private currentUserSubject: BehaviorSubject<User>;
 
   constructor(private http: HttpClient) {
+
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
     this.currentUser = this.currentUserSubject.asObservable();
    }
@@ -32,6 +32,7 @@ export class UserService {
       authorization:'Basic ' + window.btoa(user.username + ':' + user.password)
     }:{});
 
+
     return this.http.get<any> (API_URL + "login", {headers: headers})
     .pipe(map(response => {
       if(response){
@@ -42,10 +43,13 @@ export class UserService {
     }));
   }
 
+
   logOut(): Observable<any> {
     return this.http.post(API_URL + "logout", {})
-    .pipe(map(response => {
+
+    .pipe(map(_response => {
       localStorage.removeItem('currentUser');
+
       this.currentUserSubject.next(null!);
     }));
   }

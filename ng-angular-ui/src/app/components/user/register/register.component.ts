@@ -23,7 +23,6 @@ export class RegisterComponent {
       error: () => {
         this.errorMessage = 'Username is already exist';
       },
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
       complete: () => {},
     });
   }

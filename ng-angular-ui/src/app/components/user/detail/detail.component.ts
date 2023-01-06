@@ -18,7 +18,7 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       if(params.has('id')){
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
         this.productId = params.get('id')!;
       }
     });

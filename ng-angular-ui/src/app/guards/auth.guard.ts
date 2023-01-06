@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router, ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
 
@@ -16,6 +15,7 @@ export class AuthGuard implements  CanActivate {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   canActivate(route: ActivatedRouteSnapshot, _state: RouterStateSnapshot){
     if(this.currentUser){
       //check if route is restricted by role...

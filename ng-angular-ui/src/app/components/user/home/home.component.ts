@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   productList: Array<Product> = [];
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   obs?: Observable<any>;
   errorMessage?: string;
   infoMessage?: string;
@@ -39,12 +39,11 @@ export class HomeComponent implements OnInit {
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     this.dataSource.paginator = this.paginator!;
     this.cdr.detectChanges();
   }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnDestroy(): void {
     if (this.dataSource) {
       this.dataSource.disconnect();
