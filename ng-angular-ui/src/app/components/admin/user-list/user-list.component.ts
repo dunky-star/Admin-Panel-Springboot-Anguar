@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/model/user';
 import { AdminService } from 'src/app/services/admin.service';
+
 declare var $: any;
 
 
@@ -45,7 +46,7 @@ export class UserListComponent implements OnInit {
 
   editUserRequest(user: User) {
     this.selectedUser = user;
-    $("#userModal").modal('show');
+    ($('#userModal') as any).modal('show');
   }
 
   editUser(){
@@ -57,7 +58,7 @@ export class UserListComponent implements OnInit {
         this.userList[itemIndex] = this.selectedUser;
         this.dataSource = new MatTableDataSource(this.userList);
         this.infoMessage = 'operation is completed.';
-        $('#userModal'  as any).modal('hide');
+        ($('#userModal') as any).modal('hide');
       },
       error: (err) => {
         if (err.status === 409) {
@@ -71,7 +72,7 @@ export class UserListComponent implements OnInit {
 
   deleteUserRequest(user: User) {
     this.selectedUser = user;
-    $("#deleteModal"  as any).modal('show');
+    ($("#deleteModal") as any ).modal('show');
   }
 
   deleteUser(){
@@ -83,7 +84,7 @@ export class UserListComponent implements OnInit {
       }
       this.dataSource = new MatTableDataSource(this.userList);
       this.infoMessage = "Operation is completed.";
-      $("#deleteModal"  as any).modal('hide');
+      ($('#deleteModal') as any).modal('hide');
     },
     error: () => {
       this.errorMessage = "Unexpected error occurred.";
