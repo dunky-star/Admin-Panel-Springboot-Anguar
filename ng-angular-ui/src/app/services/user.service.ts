@@ -6,7 +6,7 @@ import {User} from '../model/user';
 import {Transaction} from '../model/transaction';
 
 
-// Bakend API URL
+// Back-end API URL
 const API_URL = "http://localhost:8585/api/user/";
 
 @Injectable({
