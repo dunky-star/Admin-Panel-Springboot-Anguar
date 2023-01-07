@@ -38,12 +38,14 @@ export class AdminService {
 
 
   findAllUsers(): Observable<any> {
-    return this.http.get(API_URL + 'user-all', { headers: this.headers });
+    return this.http.get(API_URL + 'user-all',
+    { headers: this.headers });
   }
 
 
   numberOfUsers(): Observable<any> {
-    return this.http.get(API_URL + 'user-number', { headers: this.headers });
+    return this.http.get(API_URL + 'user-number',
+    { headers: this.headers });
   }
 
   //products
@@ -70,12 +72,14 @@ export class AdminService {
 
 
   findAllProducts(): Observable<any> {
-    return this.http.get(API_URL + 'product-all', { headers: this.headers });
+    return this.http.get(API_URL + 'product-all',
+     { headers: this.headers });
   }
 
 
   numberOfProducts(): Observable<any> {
-    return this.http.get(API_URL + 'product-number', { headers: this.headers });
+    return this.http.get(API_URL + 'product-number',
+    { headers: this.headers });
   }
 
   //transactions
